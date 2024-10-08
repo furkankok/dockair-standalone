@@ -16,7 +16,7 @@ docker_info = None
 
 
 # for testing "",
-if False:
+if True:
     os.environ["WEBSOCKET_SERVER_URL"] = "ws://127.0.0.1:8000/ws/client/"
     os.environ["USER_TOKEN"] = "44a6ecf1-d936-4b46-983f-a28eba487707"
     os.environ["PRODUCTION"] = "false"
@@ -110,6 +110,25 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+    ...
+
+
+# def stream_all_container_logs():
+#     client = docker.from_env()
+
+#     # Çalışan tüm containerları alın
+#     containers = client.containers.list()
+
+#     for container in containers:
+#         print(f"Listening to logs from container: {container.name}")
+#         log_stream = container.logs(stream=True, follow=True)
+
+#         # Asenkron olarak logları dinlemek için bir fonksiyon
+#         for log in log_stream:
+#             print(f"[{container.name}] {log.decode('utf-8').strip()}")
+
+# if __name__ == "__main__":
+#     stream_all_container_logs()
 
 
 # docker run -d --name dockair-standalone -v /var/run/docker.sock:/var/run/docker.sock -v D:/DockerContainer:/app/projects -e USER_TOKEN=your_token_here -e WEBSOCKET_SERVER_URL=ws://dockair-web-1:8000/ws/client/ -e PRODUCTION=false -e PROJECTS_BASE_DIR=/app/projects --network dockair_dockair-network dockair-standalone
