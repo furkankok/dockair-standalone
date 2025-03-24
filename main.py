@@ -14,6 +14,7 @@ logging.basicConfig(
     level=logging.INFO, format="{asctime} - {levelname} - {message}", style="{"
 )
 logger = logging.getLogger(__name__)
+logger.disabled = True
 
 USER_TOKEN = os.getenv("USER_TOKEN", "e2dd1a2d-5010-4064-8a1c-bcefdf50dcc2")
 WEBSOCKET_SERVER_URL = f"wss://dockair.atlantiswebstudio.com/ws/client/{USER_TOKEN}/"
